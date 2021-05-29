@@ -82,7 +82,7 @@ public class Window implements ActionListener {
         try {
             String curr = String.valueOf(this.getCurrency());
             double rate = this.reader.readRate(curr);
-            outputBox.setText(this.inputBox.getText() + " EUR = " + String.valueOf(converter.convert(Double.parseDouble(inputBox.getText()), rate)) + " " + curr);
+            outputBox.setText(this.inputBox.getText() + " EUR = " + String.valueOf(Math.round((converter.convert(Double.parseDouble(inputBox.getText()), rate))*1000.0)/1000.0) + " " + curr);
         } catch (Exception exception) {
             exception.printStackTrace();
             System.out.println("Enter double type");
